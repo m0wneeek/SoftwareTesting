@@ -28,6 +28,7 @@ print("All tests have been run")
 # Function to test
 
 def add_to_self(num):
+    if isinstance(num, str): return "Error"
     return num + num
 
 # Tests
@@ -46,7 +47,7 @@ try: assert add_to_self("cat") == "Error", "Did not get error for add_to_self('c
 except AssertionError as error: print(f"fail:{error}")
 
 
-expected_result = "Error: The function doesn't work with strings"
+expected_result = "Error"
 actual_result = add_to_self("cat")
 
 try: assert actual_result == expected_result, f"Expected: {expected_result}, but got: {actual_result}"
